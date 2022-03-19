@@ -36,22 +36,16 @@ export default function Home() {
           </div>
         `);
 
-        const data = {
-          id: repo.id,
-          name: repo.name
-        }
-
         //*** Gravação
         $.ajax({
-          url: '/api/' ,
-          body: data 
+          url: `/api/?id=${repo.id}&name=${repo.name}`
         }).done(function(ret) {
           console.log(ret.data);
         });
       });
       console.clear();
     });
-    //console.clear();
+    console.clear();
   }
   return (
     <div className={styles.container}>
